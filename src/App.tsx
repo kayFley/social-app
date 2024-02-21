@@ -1,9 +1,13 @@
-import React from 'react'
+import { Routes, Route } from 'react-router-dom'
 
 import './globals.css'
 
 const App = () => {
-	return <div>App</div>
+	return (
+		<main className='flex h-screen'>
+			<div>App</div>
+		</main>
+	)
 }
 
 export default App
