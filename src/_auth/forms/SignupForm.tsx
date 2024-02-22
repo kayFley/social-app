@@ -15,6 +15,7 @@ import { Input } from '@/components/ui/input'
 import { Button } from '@/components/ui/button'
 import { SignupValidation } from '@/lib/validation'
 import Loader from '@/components/shared/Loader'
+import { createUserAccount } from '@/lib/appwrite/api'
 
 export default function SignupForm() {
 	const isLoading = false
@@ -30,7 +31,9 @@ export default function SignupForm() {
 	})
 
 	async function onSubmit(values: z.infer<typeof SignupValidation>) {
-		// const newUser = await createUserAccount(values)
+		const newUser = await createUserAccount(values)
+
+		// console.log(newUser)
 	}
 
 	return (
@@ -54,15 +57,9 @@ export default function SignupForm() {
 						name='name'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className='shad-form_label'>
-									Name
-								</FormLabel>
+								<FormLabel className='shad-form_label'>Name</FormLabel>
 								<FormControl>
-									<Input
-										type='text'
-										className='shad-input'
-										{...field}
-									/>
+									<Input type='text' className='shad-input' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -73,15 +70,9 @@ export default function SignupForm() {
 						name='username'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className='shad-form_label'>
-									Username
-								</FormLabel>
+								<FormLabel className='shad-form_label'>Username</FormLabel>
 								<FormControl>
-									<Input
-										type='text'
-										className='shad-input'
-										{...field}
-									/>
+									<Input type='text' className='shad-input' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -92,15 +83,9 @@ export default function SignupForm() {
 						name='email'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className='shad-form_label'>
-									Email
-								</FormLabel>
+								<FormLabel className='shad-form_label'>Email</FormLabel>
 								<FormControl>
-									<Input
-										type='email'
-										className='shad-input'
-										{...field}
-									/>
+									<Input type='email' className='shad-input' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
@@ -111,15 +96,9 @@ export default function SignupForm() {
 						name='password'
 						render={({ field }) => (
 							<FormItem>
-								<FormLabel className='shad-form_label'>
-									Password
-								</FormLabel>
+								<FormLabel className='shad-form_label'>Password</FormLabel>
 								<FormControl>
-									<Input
-										type='password'
-										className='shad-input'
-										{...field}
-									/>
+									<Input type='password' className='shad-input' {...field} />
 								</FormControl>
 								<FormMessage />
 							</FormItem>
